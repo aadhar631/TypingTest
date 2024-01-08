@@ -11,9 +11,9 @@
     const Result = ({correctCharCount, incorrectCharCount, isTimer, isNumber, isPunctuation}) => {
         const totalCharCount = correctCharCount + incorrectCharCount;
         const elapsedMinutes = Math.floor(isTimer / 60);
-        const wpm = Math.floor((correctCharCount / 5) / (elapsedMinutes + 1));
-        const accuracy = Math.floor((correctCharCount / (correctCharCount + incorrectCharCount)) * 100);
-        const consistency = Math.floor((correctCharCount / (totalCharCount + correctCharCount)) * 100);
+        const wpm = Math.floor((correctCharCount / 5) / (elapsedMinutes == 0 ? 1 : elapsedMinutes));
+        const accuracy = Math.floor((correctCharCount / (totalCharCount)) * 100);
+        const consistency = Math.floor((correctCharCount / (incorrectCharCount === 0 ? totalCharCount : totalCharCount + incorrectCharCount)) * 100);
 
         return (
             <div className="font-Roboto total-result w-full bg-transparent flex flex-col gap-7">

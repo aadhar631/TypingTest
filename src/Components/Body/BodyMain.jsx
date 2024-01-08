@@ -400,6 +400,7 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
       clearInterval(intervalRef.current);
     };
   }, [isTimer, isFirstStart, startTimer]);
+  
   const handleRefreshClick = () => {
     clearInterval(intervalRef.current);
     generateParas();
